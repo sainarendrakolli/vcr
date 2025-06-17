@@ -1,0 +1,487 @@
+.navbar-nav .nav-item {
+  margin: 0 10px; /* Equal spacing between nav items */
+}
+.navbar-buttons .btn {
+  background-color: blue;
+  color: white;
+}
+.navbar-right-section {
+  display: flex;
+  align-items: center;
+  gap: 50px; /* Gap between the buttons container and the image */
+  padding-right: 20px; /* Padding to the right of the image */
+}
+.navbar-img {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+/* Style for the gap between Button 1 and Button 2 */
+.navbar-buttons {
+    gap: 10px; /* Adjust this for spacing between Button 1 and Button 2 */
+}
+
+/* Critical changes for alignment */
+.container-fluid {
+    /* This ensures the brand is left, and the rest flows to the right */
+    justify-content: space-between;
+}
+
+.navbar-collapse {
+    /* Allow the collapse content to grow and fill available space */
+    flex-grow: 1;
+    /* Important: Remove any default justify-content-center from Bootstrap here if it conflicts */
+    /* For example, if you had 'justify-content-center' class on this div, remove it. */
+}
+
+.navbar-nav {
+  /* Use ms-auto to push this UL to the right edge of its parent (.navbar-collapse).
+      This effectively moves the nav items closer to the content on the far right (buttons+image). */
+  margin-left: auto !important; /* Bootstrap's ms-auto utility adds this */
+}
+
+/* Adjust this margin to control the final gap between the last nav item and the first button */
+/* This value will directly create space to the right of the entire .navbar-collapse content */
+/* You'll need to fine-tune this for the desired gap */
+.navbar-collapse {
+    margin-right: 30px; /* Adjust this value to bring list items closer to buttons */
+}
+.navbar-brand {
+    margin-right: 50px; /* Adjust this value to control the space between brand and nav items */
+}
+html,body{
+      height: auto;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+    display: flex;         /* Makes the body a flex container */
+    flex-direction: column; /* Stacks its children (navbar, main content, footer) vertically */
+    min-height: 100vh; 
+    overflow-x: hidden;    /* Ensures the body is at least 100% of the viewport height */
+}
+
+.main-img{
+  width:auto;
+  height:400px;
+  overflow: hidden;
+  margin-top: 0px; /* Space between the navbar and the image */
+}
+.main-img img {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    display: block;
+}
+.image-overlay-content {
+    position: absolute; /* CRITICAL: Takes it out of normal flow, positions relative to parent */
+    top: 50%; /* Start positioning from the middle vertically */
+    left: 20%; /* Start positioning from the middle horizontally */
+    transform: translate(-50%, -50%); /* CRITICAL: Centers the content precisely */
+    text-align: center; /* Center the text and button within the overlay div */
+    color: white; /* Make text visible over an image */
+    z-index: 2; /* Ensure it's above the image (image is usually z-index: 1 or auto) */
+    padding: 20px; /* Add some padding around the content */
+    max-width: 80%; /* Limit the width of the text block */
+}
+
+.image-overlay-content h1 {
+    font-size: 3em; /* Adjust font size as needed */
+    margin-bottom: 10px;
+    padding-left: 5px;
+}
+
+.image-overlay-content p {
+    font-size: 1.2em; /* Adjust font size as needed */
+    margin-bottom: 20px;
+    padding-left: 10px;
+}
+
+/* Optional: Styling for the button within the overlay */
+.image-overlay-content .btn {
+    /* You can override Bootstrap's btn styles here if needed */
+    padding-left: 10px;
+    font-size: 1.1em;
+}
+
+/* Optional: Dim the image slightly for better text readability */
+.main-img::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+   
+    z-index: 1; /* Below the text, above the image */
+}
+.image-overlay-content iframe{
+  position: absolute;
+  top: 35%;
+  left: 140%;
+  transform: translate(-10%, -50%);
+  height: 250px;
+  width: 400px;
+}
+.para {
+    padding: 20px 20px;
+    text-align: center;
+    color: rgb(24, 19, 19);
+    margin-bottom: 50px;
+    height: 200px; /* Example: Add space below the "Transformative Experience" section */
+}
+.para p {
+    font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+    font-size: 1.2em; /* Adjust font size as needed */
+    margin-top: 5px; /* Set 5px margin from the heading */
+    line-height: 1.6; /* Added for readability */
+    align-items: center;
+}
+.para h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3em; /* Adjust font size as needed */
+    margin-top: 40px;
+    padding-left: 25px;
+    align-items: center;
+    margin-bottom: 5px; /* Set 5px margin for spacing with paragraph */
+}
+
+/* --- MODIFICATION FOR .main-img-2 STARTS HERE --- */
+.main-img-2 {
+    position: relative; /* CRITICAL: This makes it the positioning context for absolute children */
+    width: 100%; /* Ensure it takes full width */
+    height: 450px; /* Set a fixed height for the container, adjust as needed */
+    overflow: hidden;
+    margin-top: 10px; /* You had 10px here, you might want to adjust */
+    margin-bottom: 50px; /* Example: Add space below the second image section */
+    display: flex; /* Use flexbox to easily align children */
+    align-items: center; /* Vertically center content if needed */
+    justify-content: flex-start; /* Align content to the start (left) */
+}
+
+.main-img-2 img {
+    position: absolute; /* CRITICAL: Position the image within its parent */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%; /* Ensure image fills the container */
+    object-fit: cover;
+    display: block;
+    z-index: 1; /* Place image below the text */
+}
+
+.main-img-2 .image-overlay-content { /* Target overlay content within main-img-2 */
+    position: absolute; /* CRITICAL: Position this element over the image */
+    top: 50%; /* Start positioning from the middle vertically */
+    left: 10%; /* Adjust this value to move the text more to the left */
+    transform: translateY(-50%); /* Pull it up by half its height to truly center it vertically */
+    z-index: 2; /* Place text above the image */
+    color: white; /* Changed to white for better contrast with the image */
+    padding: 20px; /* Add padding around the text */
+    max-width: 80%; /* Limit the width of the text block to match the image layout */
+    text-align: left; /* Align text to the left */
+    /* Optional: Add a subtle background for better readability on busy images */
+    background-color: rgba(0, 0, 0, 0.3); /* Added a slight dark overlay for text readability */
+    border-radius: 8px; /* Added rounded corners for the text box */
+}
+
+.main-img-2 .image-overlay-content h4 {
+     font-family: 'Playfair Display', serif; /* Changed from h3 to h4 based on your HTML */
+    margin-bottom: 5px; /* Set 5px margin for spacing with paragraph */
+    font-style: inherit;
+    font-size: 2em; /* Adjust font size as needed */
+}
+
+.main-img-2 .image-overlay-content p {
+    font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+    font-size: 1.1em; /* Adjust font size as needed, changed from 2px as it was too small */
+    margin-top: 5px; /* Set 5px margin from the heading */
+    margin-bottom: 0;
+    line-height: 1.9; /* Improve readability */
+}
+/* --- MODIFICATION FOR .main-img-2 ENDS HERE --- */
+
+
+.container {
+    width: auto;
+    height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 50px; /* Example: Add space below the list section */
+}
+.container img {
+    max-width: 100%;
+    height: 400px;
+    display: block;
+    border-radius: 8px;
+}
+
+.lists-container {
+    display: flex;
+    flex-grow: 1;
+    justify-content: space-around;
+    gap: 20px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    align-items: center;
+}
+
+.content-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    flex: 1;
+    min-width: 100px;
+    text-align: center;
+}
+
+.content-list li {
+    padding: 8px 0;
+    border-bottom: 1px dashed #eee; /* Subtle separator for list items */
+    font-size: 1.1em;
+    color: #333;
+}
+
+.content-list li:last-child {
+    border-bottom: none; /* No border for the last item */
+}
+
+/* --- MODIFICATION FOR .main-img-3 STARTS HERE --- */
+.main-img-3 {
+    width: 100%;
+    height: auto; /* Adjust height based on content */
+    overflow: hidden;
+    margin-top: 10px;
+    position: relative;
+    margin-bottom: 50px;
+    background: linear-gradient(to right, #0a1128, #001f54); /* Approximate dark blue gradient */
+    padding: 50px; /* Add padding around the content */
+    display: flex;
+    justify-content: space-between; /* Arrange left and right sections */
+    align-items: center; /* Vertically align content in the middle */
+}
+
+.main-img-3-left {
+    color: white;
+    max-width: 50%; /* Allow space for the right text */
+    text-align: left; /* Ensure left-aligned text */
+}
+
+.main-img-3-left h3 {
+     font-family: 'Playfair Display', serif;
+    font-size: 2.5em;
+    margin-bottom: 15px;
+}
+
+.main-img-3-left p {
+    font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+    font-size: 1.1em;
+    line-height: 1.7;
+    margin-bottom: 10px;
+}
+
+.main-img-3-left ul {
+    list-style-type: disc;
+    padding-left: 25px; /* Indent bullet points */
+    margin-bottom: 15px;
+}
+
+.main-img-3-left ul li {
+    font-size: 1.1em;
+    line-height: 1.7;
+    margin-bottom: 5px;
+}
+
+.main-img-3-right {
+    color: #e0f2f7; /* Light blue color */
+    font-size: 2em;
+    font-style: italic;
+    max-width: 40%; /* Adjust width as needed */
+    text-align: center; /* Center the text on the right */
+}
+/* --- MODIFICATION FOR .main-img-3 ENDS HERE --- */
+
+
+.value {
+    height: 300px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    margin-bottom: 50px; /* Example: Add space below the "Value" section */
+}
+.value img {
+    height: 150px;
+    width:150px;
+    object-fit: cover; /* Ensures the image covers the area without distortion */
+}
+
+.value div {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center the text under the image */
+    text-align: center; /* Center the text */
+}
+.heading {
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+.image-1 {
+    padding-top: 20px;
+    width: 100%;
+    height: 250px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 50px; /* Example: Add space below this image */
+}
+.image-1 img {
+    padding-left: 0; /* Remove padding if using flexbox for centering */
+    width:1000px;
+    height: 200px;
+}
+
+/* --- MODIFICATION FOR .mainclass STARTS HERE --- */
+.mainclass {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: stretch; /* Make cards the same height */
+    padding: 40px;
+    /* IMPORTANT: Replace this URL with your actual background image */
+    background-image: url("https://via.placeholder.com/1500x800/1a1a2e/ffffff?text=Background+Image");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Optional: Makes background fixed when scrolling */
+    gap: 30px; /* Space between the cards */
+    margin-bottom: 50px; /* Space below the mainclass section */
+}
+
+.maincontainer {
+    background-color: #fff; /* White background for the card */
+    border-radius: 10px; /* Rounded corners for the card */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* More pronounced shadow */
+    overflow: hidden; /* Keep overflow hidden for content inside */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center items horizontally within the card */
+    text-align: center;
+    width: 350px; /* Fixed width for the cards */
+    flex-shrink: 0; /* Prevent cards from shrinking */
+    transition: transform 0.3s ease; /* Smooth hover effect */
+}
+
+.maincontainer:hover {
+    transform: translateY(-10px); /* Lift card on hover */
+}
+
+.maincontainer .subcontainer {
+    background-color: #6c3483; /* Purple background for the top section */
+    color: white;
+    width: 100%;
+    box-sizing: border-box; /* Include padding in width */
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    position: relative; /* Critical for absolute positioning of image */
+    padding: 20px; /* Default padding */
+    padding-left: 140px; /* Make space for the image on the left */
+    min-height: 120px; /* Ensure enough height for the image */
+    /* Remove display: flex, align-items, justify-content from here to keep previous text alignment */
+}
+
+.maincontainer .subcontainer img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 5px solid white; /* White border around the image */
+    position: absolute; /* Position relative to .subcontainer */
+    top: 50%; /* Vertically center */
+    left: 20px; /* Distance from the left edge */
+    transform: translateY(-50%); /* Adjust for true vertical centering */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Shadow for the image */
+}
+
+.maincontainer .subcontainer h4 {
+     font-family: 'Playfair Display', serif;
+    margin: 0; /* Remove default margin */
+    font-size: 1.5em;
+    /* Removed flex-grow to avoid interference with text alignment */
+    /* You might need to add specific text-align or margin if you want it differently aligned */
+    text-align: left; /* Keep text aligned left within the space */
+}
+
+.maincontainer p {
+    font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+    color: #333;
+    font-size: 1em;
+    line-height: 1.6;
+    padding: 20px;
+    padding-top: 20px; /* Reset padding-top */
+    margin: 0;
+    text-align: left; /* Align the quote text to the left */
+}
+/* --- MODIFICATION FOR .mainclass ENDS HERE --- */
+
+/* Footer Specific Styles */
+.footer-section {
+    background-color: #343a40 !important; /* Dark background */
+    color: #ffffff !important; /* White text */
+    height: 500px; /* Allow height to adjust based on content, changed from fixed height */
+    margin-bottom: 0px !important;
+    padding-bottom: 0px !important;
+    margin-top: auto;
+    flex-shrink: 0;
+}
+
+.footer-section h5 {
+     font-family: 'Playfair Display', serif;
+    color: #ffffff; /* Ensure headings are white */
+    font-weight: bold;
+}
+
+.footer-section ul {
+    padding-left: 0; /* Remove default list padding */
+}
+
+.footer-section ul li {
+    margin-bottom: 8px; /* Space between list items */
+}
+
+.footer-section a {
+    color: #ffffff; /* White links */
+    text-decoration: none; /* No underline by default */
+    transition: color 0.3s ease; /* Smooth hover effect */
+}
+
+.footer-section a:hover {
+    color: #f8f9fa; /* Lighter white on hover */
+    text-decoration: underline; /* Underline on hover */
+}
+
+/* Responsive adjustments */
+
+    .footer-section ul {
+        margin-left: auto;
+        margin-right: auto;
+        display: inline-block; /* Helps center unstyled lists */
+    }
+    .content-wrapper {
+    flex-grow: 1 !important;
+    margin-bottom: 0 !important; /* No bottom margin on the content wrapper */
+    padding-bottom: 0 !important; /* No bottom padding on the content wrapper */
+}
+.heading h3{
+     font-family: 'Playfair Display', serif;
+}
