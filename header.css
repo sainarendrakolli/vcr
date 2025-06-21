@@ -1,0 +1,455 @@
+/* header.css */
+
+/* --- Default Light Mode Variables (applied to :root) --- */
+:root {
+    --page-bg: #f0f2f5;
+    --text-color: #333333;
+    --element-bg: #ffffff;
+    --border-color: #e0e0e0;
+    --accent-color: #007bff;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+
+    --navbar-link-color: #555;
+    --navbar-link-hover-color: #007bff;
+    --button-outline-primary-color: #007bff;
+    --button-outline-primary-text: #007bff;
+    --button-primary-bg: #007bff;
+    --button-primary-text: white;
+    --mega-menu-bg: #ffffff;
+    --mega-menu-heading-color: #333;
+    --mega-menu-link-color: #666;
+    --mega-menu-footer-text: #777;
+
+    /* New variables for the slider */
+    --slider-bg-light: #ccc; /* Background when in light mode */
+    --slider-thumb-light: #fff; /* Thumb color in light mode */
+    --slider-bg-dark: #63b3ed; /* Background when in dark mode */
+    --slider-thumb-dark: #fff; /* Thumb color in dark mode */
+}
+
+/* --- Dark Mode Variables (applied when body has .dark-mode) --- */
+body.dark-mode {
+    --page-bg: #1a202c;
+    --text-color: #e2e8f0;
+    --element-bg: #2d3748;
+    --border-color: #4a5568;
+    --accent-color: #63b3ed;
+    --shadow-color: rgba(0, 0, 0, 0.4);
+
+    --navbar-link-color: #bdc3c7;
+    --navbar-link-hover-color: #3498db;
+    --button-outline-primary-color: #3498db;
+    --button-outline-primary-text: #3498db;
+    --button-primary-bg: #2980b9;
+    --button-primary-text: #ecf0f1;
+    --mega-menu-bg: #34495e;
+    --mega-menu-heading-color: #ecf0f1;
+    --mega-menu-link-color: #bdc3c7;
+    --mega-menu-footer-text: #bdc3c7;
+}
+
+/* General Body and HTML */
+html, body {
+    height: auto;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    background-color: var(--page-bg);
+    color: var(--text-color);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Header Specific Styles */
+.main-header {
+    width: 100%;
+    position: relative;
+    z-index: 1050;
+    background-color: var(--element-bg);
+    transition: background-color 0.3s ease;
+}
+
+.navbar {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    box-shadow: 0 2px 4px var(--shadow-color);
+    transition: box-shadow 0.3s ease;
+}
+
+.custom-container {
+    padding-left: var(--bs-gutter-x, 1.5rem);
+    padding-right: var(--bs-gutter-x, 1.5rem);
+}
+
+.navbar-brand {
+    font-weight: bold;
+    font-size: 1.9rem;
+    margin-right: 2rem;
+    background-image: url('https://images.pexels.com/photos/414860/pexels-photo-414860.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260');
+    background-size: 300% 100%;
+    background-position: 0% 0%;
+    background-repeat: no-repeat;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    animation: moveMedicalImage 12s linear infinite alternate;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+@keyframes moveMedicalImage {
+    0% {
+        background-position: 0% 0%;
+    }
+    100% {
+        background-position: 100% 0%;
+    }
+}
+
+.navbar-nav .nav-item {
+    margin: 0 0.75rem;
+}
+
+.navbar-nav .nav-link {
+    font-weight: 500;
+    color: var(--navbar-link-color);
+    padding: 0.5rem 0.75rem;
+    transition: color 0.3s ease;
+    font-size: 1.1rem;
+}
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active {
+    color: var(--navbar-link-hover-color);
+}
+
+.navbar-right-section {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    padding-left: 1rem;
+}
+
+.navbar-buttons {
+    gap: 0.625rem;
+}
+
+.navbar-buttons .custom-btn {
+    border-radius: 20px;
+    padding: 0.5rem 1.25rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.navbar-buttons .btn-primary {
+    background-color: var(--button-primary-bg);
+    color: var(--button-primary-text);
+    border-color: var(--button-primary-bg);
+}
+
+.navbar-buttons .btn-primary:hover {
+    background-color: var(--navbar-link-hover-color);
+    border-color: var(--navbar-link-hover-color);
+}
+
+.navbar-buttons .btn-outline-primary {
+    color: var(--button-outline-primary-text);
+    border-color: var(--button-outline-primary-color);
+    background-color: transparent;
+}
+
+.navbar-buttons .btn-outline-primary:hover {
+    background-color: var(--button-outline-primary-color);
+    color: white;
+}
+
+/* Theme Toggle Slider Styles */
+.theme-toggle-slider {
+    width: 50px;
+    height: 26px;
+    background-color: var(--slider-bg-light);
+    border-radius: 20px;
+    position: relative;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    flex-shrink: 0;
+    border: 1px solid var(--border-color);
+}
+
+.theme-toggle-slider .slider-thumb {
+    width: 20px;
+    height: 20px;
+    background-color: var(--slider-thumb-light);
+    border-radius: 50%;
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+body.dark-mode .theme-toggle-slider {
+    background-color: var(--slider-bg-dark);
+}
+
+body.dark-mode .theme-toggle-slider .slider-thumb {
+    transform: translateX(24px);
+    background-color: var(--slider-thumb-dark);
+}
+
+/* Megamenu Specific Styles */
+.nav-item.dropdown-mega-wrapper {
+    position: static;
+}
+
+.mega-dropdown-toggle {
+    position: relative;
+    padding-right: 1.5em !important;
+}
+
+.mega-dropdown-toggle::after {
+    content: '\f078';
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    position: absolute;
+    right: 0.5em;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 0.7em;
+    transition: transform 0.3s ease;
+}
+
+.dropdown-mega-wrapper.show .mega-dropdown-toggle::after {
+    transform: translateY(-50%) rotate(180deg);
+}
+
+.dropdown-mega-menu {
+    display: flex; /* Changed to flex to align image and content */
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: var(--mega-menu-bg);
+    box-shadow: 0 8px 16px var(--shadow-color);
+    padding: 0; /* Remove padding from here, add to internal elements */
+    border-top: 1px solid var(--border-color);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
+    z-index: 1040;
+    pointer-events: none;
+    min-height: 300px; /* Ensure enough height for the image */
+    align-items: stretch; /* Stretch items to fill container height */
+}
+
+.dropdown-mega-wrapper.show .dropdown-mega-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+/* Mega Menu Image Section */
+.mega-menu-visual {
+    flex: 0 0 300px; /* Fixed width for the image column */
+    background-color: var(--border-color); /* Fallback background */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.mega-menu-visual img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Cover the area, cropping if necessary */
+    display: block;
+}
+
+/* Mega Menu Content Section */
+.mega-menu-content {
+    flex-grow: 1; /* Allows content to take up remaining space */
+    max-width: none; /* Override Bootstrap's max-width for container */
+    margin: 0; /* Override Bootstrap's margin */
+    padding: 30px 15px; /* Add padding here instead of dropdown-mega-menu */
+    display: flex; /* Use flexbox for inner columns */
+    flex-direction: column; /* Stack rows vertically */
+    justify-content: space-between; /* Pushes footer to bottom */
+}
+
+.mega-menu-content .row {
+    flex-grow: 1; /* Allow rows to grow */
+}
+
+
+.mega-menu-content h4 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: var(--mega-menu-heading-color);
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 10px;
+    transition: color 0.3s ease, border-color 0.3s ease;
+}
+
+.mega-menu-content ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.mega-menu-content ul li {
+    margin-bottom: 10px;
+}
+
+.mega-menu-content ul li a {
+    color: var(--mega-menu-link-color);
+    text-decoration: none;
+    font-size: 1rem;
+    display: block;
+    padding: 5px 0;
+    transition: color 0.2s ease, padding-left 0.2s ease;
+}
+
+.mega-menu-content ul li a:hover {
+    color: var(--navbar-link-hover-color);
+    padding-left: 5px;
+}
+
+.mega-menu-footer {
+    border-top: 1px solid var(--border-color);
+    padding-top: 20px;
+    margin-top: 30px;
+    text-align: center;
+    transition: border-top 0.3s ease;
+}
+
+.mega-menu-footer p {
+    margin-bottom: 15px;
+    color: var(--mega-menu-footer-text);
+    font-size: 0.95rem;
+    transition: color 0.3s ease;
+}
+
+/* Responsive Adjustments (Bootstrap breakpoints) */
+@media (max-width: 991.98px) {
+    .navbar-collapse {
+        flex-basis: 100%;
+        flex-grow: 1;
+        margin-top: 1rem;
+        order: 3;
+    }
+
+    .navbar-nav {
+        margin-left: 0 !important;
+        width: 100%;
+    }
+
+    .navbar-right-section {
+        order: 2;
+        margin-left: auto;
+        padding-right: 0;
+    }
+
+    .navbar-brand {
+        margin-right: auto;
+    }
+
+    /* Mobile Megamenu Behavior */
+    .dropdown-mega-wrapper {
+        position: relative;
+        width: 100%;
+        border-bottom: 1px solid var(--border-color);
+    }
+
+    .dropdown-mega-wrapper:first-of-type {
+        border-top: 1px solid var(--border-color);
+    }
+
+    .mega-dropdown-toggle {
+        width: 100%;
+        display: block;
+        padding: 1rem 1.5rem !important;
+        font-weight: 600;
+    }
+
+    /* Mobile caret - use Font Awesome right arrow for collapsed state */
+    .mega-dropdown-toggle::after {
+        content: '\f054'; /* Font Awesome solid angle-right icon */
+        font-family: 'Font Awesome 6 Free';
+        font-weight: 900;
+        position: absolute;
+        right: 1.5em; /* Adjust position for mobile */
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 0.7em;
+        transition: transform 0.3s ease;
+    }
+
+    /* Mobile caret - rotate down when expanded */
+    .dropdown-mega-wrapper.show .mega-dropdown-toggle::after {
+        content: '\f078'; /* Font Awesome solid angle-down icon */
+        transform: translateY(-50%) rotate(0deg); /* No rotation needed if using angle-down */
+    }
+
+    .dropdown-mega-menu {
+        flex-direction: column; /* Stack image and content vertically on mobile */
+        position: static;
+        top: auto;
+        left: auto;
+        box-shadow: none;
+        border-top: none;
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+        display: none; /* Handled by JS for mobile toggle */
+        padding: 0; /* Remove top-level padding */
+        width: auto;
+        min-height: auto; /* Reset min-height for mobile */
+    }
+
+    .dropdown-mega-wrapper.show .dropdown-mega-menu {
+        display: flex; /* Show as flex column on mobile */
+    }
+
+    .mega-menu-visual {
+        flex: 0 0 auto; /* Reset flex for mobile */
+        width: 100%; /* Take full width */
+        height: 150px; /* Smaller height for mobile image */
+        margin-bottom: 15px; /* Add space below image */
+    }
+
+    .mega-menu-content {
+        padding: 10px 15px 20px; /* Adjust padding for mobile */
+    }
+
+    .mega-menu-content .col-md-4,
+    .mega-menu-content .col-md-6 {
+        margin-bottom: 15px;
+        border-bottom: 1px dashed var(--border-color);
+        padding-bottom: 15px;
+    }
+    .mega-menu-content .col-md-4:last-child,
+    .mega-menu-content .col-md-6:last-child {
+        margin-bottom: 0;
+        border-bottom: none;
+        padding-bottom: 0;
+    }
+
+    .mega-menu-content h4 {
+        font-size: 1.1rem;
+        margin-bottom: 10px;
+        border-bottom: none;
+        padding-bottom: 0;
+    }
+    .mega-menu-footer {
+        margin-top: 15px;
+        padding-top: 15px;
+    }
+}
